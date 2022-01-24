@@ -1,11 +1,31 @@
 
-let foodList = document.querySelector("ol");
+function action1(callback){
+    setTimeout(()=>{
+        console.log("action 1 is running");
+        callback();
+    }, 5000);
+}
 
-let newFruit = document.createElement('li');
+// so for action 2 to finish we need to wait action 1 first
 
-newFruit.textContent = "WaterMellons";
-newFruit.className = "food-list-item";
+function action2(){
+    setTimeout(()=>{
+        console.log("action 2 is now running");
+    },5000);
+}
 
-console.log(newFruit);
+action1(action2);
 
-foodList.appendChild(newFruit);
+promise1 = new Promise((resolve, reject)=>{
+    resolve = true;
+    if (resolve){
+        console.log("hi");
+    }
+})
+
+promise2= new Promise((resolve, reject)=>{
+    resolve = true;
+    if (resolve){
+        console.log("hi this is promise 2");
+    }
+})
